@@ -13,13 +13,14 @@ let renderCurrentTime = () =>{
 }
 
 let renderUser = (event) =>{
-	
+	event.preventDefault();
 	let input = document.querySelector('.inp_username').value;
 	localStorage.setItem('username',input);
 	convertMainDiv(input);
 }
 
 let registSchedule = (event) =>{
+	event.preventDefault();
 	let prevTodo = localStorage.getItem('todo');
 	
 	let input = document.querySelector('.inp_todo').value;
@@ -60,7 +61,7 @@ let renderSchedule = (todoList) =>{
 	document.querySelector('#currentPage').textContent = 1;
 	todoList.forEach(schedule =>{
 		let workDiv = document.createElement('div');
-		workDiv.innerHTML = `<i class="fas fa-trash-alt" data-idx="${schedule.idx})"></i>' ${schedule.work}`;
+		workDiv.innerHTML = `<i class="fas fa-trash-alt" data-idx="${schedule.idx}"></i>' ${schedule.work}`;
 		document.querySelector('.todo-list').append(workDiv);
 
 	});
